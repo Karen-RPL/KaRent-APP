@@ -3,9 +3,21 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  validate :validate_username, on: %i[create]
+  has_one_attached :avatar
+  after_validation :add_default_avatar, on: %i[create update]
 
   attr_writer :login
-  validate :validate_username
+
+
+  def avatar_thumbnail
+    if avatar.attached?
+      avatar
+    else
+      '/default_profiles.png'
+    end
+  end
+
 
   def login
     @login || self.username || self.email
@@ -25,4 +37,18 @@ class User < ApplicationRecord
       errors.add(:username, :invalid)
     end
   end
+
+  private
+    def add_default_avatar
+      unless avatar.attached?
+        avatar.attach(
+          io: File.open(
+            Rails.root.join(
+              "app", "assets", "images", "default_profile.jpg"
+            )
+          ), filename: "default_profile.jpg",
+          content_type: "'image/jpeg'"
+        )
+      end
+    end
 end
