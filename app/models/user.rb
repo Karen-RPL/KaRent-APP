@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   attr_writer :login
 
+  enum role: {customer: 0, owner: 10, admin: 99}
 
   def avatar_thumbnail
     if avatar.attached?
