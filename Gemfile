@@ -5,6 +5,9 @@ ruby "3.0.3"
 
 gem "devise"
 gem 'devise-i18n'
+gem 'bootstrap', '~> 4.5.2'
+gem 'jquery-rails'
+gem 'sassc-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
