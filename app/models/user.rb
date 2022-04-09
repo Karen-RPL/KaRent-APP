@@ -8,8 +8,10 @@ class User < ApplicationRecord
   after_validation :add_default_avatar, on: %i[create update]
 
   attr_writer :login
+  has_one :company
 
-  enum role: {customer: 0, owner: 10, admin: 99}
+
+  enum role: {customer: 0, owner: 10, admin: 99}, _default: 0
 
   def avatar_thumbnail
     if avatar.attached?
@@ -37,6 +39,10 @@ class User < ApplicationRecord
     if User.where(username: username).exists?
       errors.add(:username, :invalid)
     end
+  end
+
+  def company_exist?
+    User.find(id).company != nil
   end
 
   private

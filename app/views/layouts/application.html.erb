@@ -7,11 +7,80 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application",media: 'all', "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "demo",media: 'all', "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "apex-charts",media: 'all', "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "highlight",media: 'all', "data-turbo-track": "reload" %>
+    <%#= stylesheet_link_tag "highlight-github",media: 'all', "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "core",media: 'all', "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "theme-default",media: 'all', "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "page-misc",media: 'all', "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "page-account-settings",media: 'all', "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "page-icons",media: 'all', "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "page-auth",media: 'all', "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "boxicons",media: 'all', "data-turbo-track": "reload" %>
+
+    <%= javascript_include_tag 'helpers', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'bootstrap', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'config', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'ui-toasts', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'ui-popover', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'ui-modals', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'pages-account-settings-account', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'form-basic-inputs', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'extended-ui-perfect-scrollbar', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'highlight', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'masonry', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag "perfect-scrollbar",media: 'all', "data-turbo-track": "reload" %>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+      />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/pages/page-auth.css" />
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
   </head>
 
   <body>
     <%= render 'layouts/alert' %>
     <%= yield %>
+    <%= javascript_include_tag 'jquery', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'popper', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'perfect-scrollbar', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'menu', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'apexcharts', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'main', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'dashboards-analytics', 'data-turbolinks-track': 'reload' %>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
