@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # Fungsi untuk define coloum form untuk fitur authentikasi seperti sign_in, sign_up, account_update
   def configure_permitted_parameters
     added_attrs = [:username, :email, :password, :password_confirmation, :remember_me, :avatar, :role, :name]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
