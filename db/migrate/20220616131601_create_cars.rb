@@ -10,6 +10,7 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.integer :seat
       t.date :last_service_date
       t.string :petrol
+      t.integer :id_company
 
       t.timestamps
     end

@@ -1,0 +1,102 @@
+<div class="row">
+  <div class="col-xl">
+    <div class="card mb-4">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Basic Layout</h5>
+        <small class="text-muted float-end">Default label</small>
+      </div>
+      <div class="card-body">
+        <%#= form_tag(model: @company, url: create_company_path) do |form| %>
+
+<!--          <div class="mb-3">-->
+            <%#= form.label :name, class:"form-label", for:"basic-default-fullname" %>
+            <%#= form.text_field :name, class:"form-control", id:"basic-default-fullname", placeholder:"John Doe" %>
+<!--          </div>-->
+
+<!--          <div class="mb-3">-->
+            <%#= form.label :time_open, class:"form-label", for:"basic-default-fullname" %>
+<!--            <br>-->
+            <%#=
+<!--              form.time_field :time_open,-->
+<!--                           value: "%H:%M",-->
+<!--                           min: 'hh:mm:ss',-->
+<!--                           max: 'hh:mm:ss'-->
+            %>
+<!--          </div>-->
+
+
+<!--          <div class="mb-3">-->
+            <%#= form.label :time_close, class:"form-label", for:"basic-default-fullname" %>
+<!--            <br>-->
+            <%#=
+<!--              form  .time_field :time_close,-->
+<!--                           value: "%H:%M",-->
+<!--                           min: 'hh:mm:ss',-->
+<!--                           max: 'hh:mm:ss',-->
+<!--                                class:'form_control'-->
+            %>
+<!--          </div>-->
+
+
+<!--          <div class="mb-3">-->
+            <%#= form.label :address, class:"form-label", for:"basic-default-message"   %>
+            <%#= form.text_area :address, id:"basic-default-message", class:"form-control", placeholder:"Hi, Do you have a moment to talk Joe?" %>
+<!--          </div>-->
+<!--          <div>-->
+            <%#= form.label :user_id, style: "display: block" %>
+            <%#= form.number_field :user_id, value: current_user.id, disabled: true, style:"hidden=true"%>
+<!--          </div>-->
+
+<!--          <div>-->
+            <%#= form.submit %>
+<!--          </div>-->
+        <%# end %>
+        <div class="card-body">
+        <%= form_with model: @company, url: create_company_path do |form| %>
+
+          <%= form.label :name, class:"form-label", for:"basic-default-fullname" %>
+          <%= form.text_field :name, class:"form-control", id:"basic-default-fullname", placeholder:"John Doe" %>
+                    </div>
+
+                    <div class="mb-3">
+          <%= form.label :time_open, class:"form-label", for:"basic-default-fullname" %>
+                      <br>
+          <%=
+              form.time_field :time_open,
+                           value: "%H:%M",
+                           min: 'hh:mm:ss',
+                           max: 'hh:mm:ss'
+          %>
+                    </div>
+
+
+                    <div class="mb-3">
+          <%= form.label :time_close, class:"form-label", for:"basic-default-fullname" %>
+                      <br>
+          <%=
+              form  .time_field :time_close,
+                           value: "%H:%M",
+                           min: 'hh:mm:ss',
+                           max: 'hh:mm:ss',
+                                class:'form_control'
+          %>
+                    </div>
+
+
+                    <div class="mb-3">
+          <%= form.label :address, class:"form-label", for:"basic-default-message"   %>
+          <%= form.text_area :address, id:"basic-default-message", class:"form-control", placeholder:"Hi, Do you have a moment to talk Joe?" %>
+                    </div>
+                    <div hidden>
+          <%= form.label :user_id, style: "display: block" %>
+          <%= form.number_field :user_id, value: current_user.id%>
+                    </div>
+
+                    <div>
+          <%= form.submit %>
+        <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

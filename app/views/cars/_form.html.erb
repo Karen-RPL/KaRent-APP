@@ -1,3 +1,11 @@
+<div class="row">
+  <div class="col-xl">
+    <div class="card mb-4">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Basic Layout</h5>
+        <small class="text-muted float-end">Default label</small>
+      </div>
+      <div class="card-body">
 <%= form_with(model: car) do |form| %>
   <% if car.errors.any? %>
     <div style="color: red">
@@ -11,52 +19,83 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :name, class:"form-label", for:"basic-default-fullname" %>
+    <%= form.text_field :name, class:"form-control", id:"basic-default-fullname", placeholder:"John Doe" %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+
+  <div class="mb-3">
+    <%= form.label :description, class:"form-label", for:"basic-default-message"   %>
+    <%= form.text_area :description, id:"basic-default-message", class:"form-control", placeholder:"Hi, Do you have a moment to talk Joe?" %>
   </div>
 
-  <div>
-    <%= form.label :year, style: "display: block" %>
-    <%= form.number_field :year %>
+  <div class="mb-3">
+      <%= form.label :year, style: "display: block" %>
+    <div style="width: 35%">
+      <%= form.number_field :year, class:"form-control" %>
+    </div>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :door, style: "display: block" %>
-    <%= form.number_field :door %>
+    <div style="width: 35%">
+      <%= form.number_field :door, class:"form-control" %>
+    </div>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
+    <div style="width: 35%">
+      <%= form.number_field :price, class:"form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :transmittion, style: "display: block" %>
-    <%= form.text_field :transmittion %>
-  </div>
+          <div>
+            <%= form.label :transmittion, style: "display: block" %>
+            <% Car.transmissions.keys.each do |role| %>
+              <div class="form-check mt-1">
+                <%= form.radio_button :transmittion, role, class:"form-check-input" %>
+                <%= form.label role.to_sym, class:"form-check-label" %>
+              </div>
+            <% end %>
+          </div>
 
-  <div>
-    <%= form.label :seat, style: "display: block" %>
-    <%= form.number_field :seat %>
-  </div>
+          <div class="mb-3">
+            <%= form.label :seat, style: "display: block" %>
+            <div style="width: 35%">
+              <%= form.number_field :seat, class:"form-control" %>
+            </div>
+          </div>
 
-  <div>
-    <%= form.label :last_service_date, style: "display: block" %>
-    <%= form.date_field :last_service_date %>
-  </div>
 
-  <div>
+          <div class="mb-3">
+            <%= form.label :date, style: "display: block" %>
+            <div style="width: 35%">
+              <%= form.date_field :last_service_date, class:"form-control"%>
+            </div>
+          </div>
+
+  <div class="mb-3">
     <%= form.label :petrol, style: "display: block" %>
-    <%= form.text_field :petrol %>
+    <% Car.petrols.keys.each do |role| %>
+      <div class="form-check mt-1">
+        <%= form.radio_button :petrol, role, class:"form-check-input" %>
+        <%= form.label role.to_sym, class:"form-check-label" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :id_company, style: "display: block" %>
+    <%= form.number_field :id_company, value: current_user.company_id%>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+      </div>
+    </div>
+  </div>
+</div>

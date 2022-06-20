@@ -69,28 +69,47 @@
   <ul class="menu-inner py-1">
     <!-- Dashboard -->
     <li class="menu-item <%= if locals[:state] == "dashboard" then 'active' end   %>">
-      <a href="index.html" class="menu-link">
+      <a href="http://127.0.0.1:3000/owner" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div data-i18n="Analytics">Dashboard</div>
       </a>
     </li>
     <!-- Components -->
     <% if current_user.company_exist? %>
-    <li class="menu-header small text-uppercase"><span class="menu-header-text">Manage</span></li>
-    <!-- Cards -->
-    <li class="menu-item">
-      <a href="cards-basic.html" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-collection"></i>
-        <div data-i18n="Basic">Company</div>
-      </a>
-    </li>
-
-    <li class="menu-item">
-      <a href="icons-boxicons.html" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-crown"></i>
-        <div data-i18n="Boxicons">Car</div>
-      </a>
-    </li>
+      <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Company</span>
+      </li>
+      <li class="menu-item <%= if locals[:state] == "new_company" then 'active' end   %>">
+        <a href="http://127.0.0.1:3000/owner/show_company" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-car"></i>
+          <div data-i18n="Analytics">List</div>
+        </a>
+      </li>
+      <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Cars</span>
+      </li>
+      <li class="menu-item <%= if locals[:state] == "cars" then 'active' end   %>">
+        <a href="http://127.0.0.1:3000/cars" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-car"></i>
+          <div data-i18n="Analytics">List</div>
+        </a>
+      </li>
+      <li class="menu-item <%= if locals[:state] == "new_car" then 'active' end   %>">
+        <a href="http://127.0.0.1:3000/cars/new" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-plus-circle"></i>
+          <div data-i18n="Analytics">Add New</div>
+        </a>
+      </li>
+    <% else %>
+      <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Company</span>
+      </li>
+      <li class="menu-item <%= if locals[:state] == "new_company" then 'active' end   %>">
+        <a href="http://127.0.0.1:3000/owner/create_company" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-car"></i>
+          <div data-i18n="Analytics">Add Company</div>
+        </a>
+      </li>
     <% end %>
   </ul>
 </aside>

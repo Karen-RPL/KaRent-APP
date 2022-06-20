@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_one :company
 
 
+
   enum role: {customer: 0, owner: 10, admin: 99}, _default: 0
 
   def avatar_thumbnail
@@ -43,6 +44,10 @@ class User < ApplicationRecord
 
   def company_exist?
     User.find(id).company != nil
+  end
+
+  def company_id
+    User.find(id).company.id
   end
 
   private

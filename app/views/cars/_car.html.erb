@@ -1,47 +1,76 @@
-<div id="<%= dom_id car %>">
-  <p>
-    <strong>Name:</strong>
-    <%= car.name %>
-  </p>
+<!--<div id="<%#= dom_id car %>">-->
+<!--  <p>-->
+<!--    <strong>Name:</strong>-->
+    <%#= car.name %>
+<!--  </p>-->
 
-  <p>
-    <strong>Description:</strong>
-    <%= car.description %>
-  </p>
+<!--  <p>-->
+<!--    <strong>Description:</strong>-->
+    <%#= car.description %>
+<!--  </p>-->
 
-  <p>
-    <strong>Year:</strong>
-    <%= car.year %>
-  </p>
+<!--  <p>-->
+<!--    <strong>Year:</strong>-->
+    <%#= car.year %>
+<!--  </p>-->
 
-  <p>
-    <strong>Door:</strong>
-    <%= car.door %>
-  </p>
+<!--  <p>-->
+<!--    <strong>Door:</strong>-->
+    <%#= car.door %>
+<!--  </p>-->
 
-  <p>
-    <strong>Price:</strong>
-    <%= car.price %>
-  </p>
+<!--  <p>-->
+<!--    <strong>Price:</strong>-->
+    <%#= car.price %>
+<!--  </p>-->
 
-  <p>
-    <strong>Transmittion:</strong>
-    <%= car.transmittion %>
-  </p>
+<!--  <p>-->
+<!--    <strong>Transmittion:</strong>-->
+    <%#= car.transmittion %>
+<!--  </p>-->
 
-  <p>
-    <strong>Seat:</strong>
-    <%= car.seat %>
-  </p>
+<!--  <p>-->
+<!--    <strong>Seat:</strong>-->
+    <%#= car.seat %>
+<!--  </p>-->
 
-  <p>
-    <strong>Last service date:</strong>
-    <%= car.last_service_date %>
-  </p>
+<!--  <p>-->
+<!--    <strong>Last service date:</strong>-->
+    <%#= car.last_service_date %>
+<!--  </p>-->
 
-  <p>
-    <strong>Petrol:</strong>
-    <%= car.petrol %>
-  </p>
+<!--  <p>-->
+<!--    <strong>Petrol:</strong>-->
+    <%#= car.petrol %>
+<!--  </p>-->
 
-</div>
+<!--  <p>-->
+<!--    <strong>Id company:</strong>-->
+    <%#= car.id_company %>
+<!--  </p>-->
+
+<!--</div>-->
+
+<tr id=<%= dom_id car %>>
+  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%= car.name.titleize %></strong></td>
+  <td><%= car.description[0..20] %></td>
+  <td><%= car.year %></td>
+  <td><%= car.door %></td>
+  <td><span class="badge bg-label-primary me-1"><%= car.price %> IDR</span></td>
+  <td><%= car.transmittion.titleize %></td>
+  <td><%= car.seat %></td>
+  <td><%= car.last_service_date %></td>
+  <td><%= car.petrol.titleize %></td>
+
+  <td>
+    <div class="dropdown">
+      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+        <i class="bx bx-dots-vertical-rounded"></i>
+      </button>
+      <div class="dropdown-menu">
+        <%= link_to "Edit this car", edit_car_path(car), :class=>"dropdown-item" %>
+        <%= button_to "Destroy this car", car, method: :delete, :class=>"dropdown-item" %>
+      </div>
+    </div>
+  </td>
+</tr>

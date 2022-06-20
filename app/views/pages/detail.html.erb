@@ -1,0 +1,832 @@
+<% if current_user %>
+  <nav class="navbar navbar-expand-lg bg-white" style="padding-top: 1rem;padding-bottom: 1rem;">
+    <div class="container">
+      <%= link_to(raw("<span class='app-brand-logo'>
+  <svg width='81.75' height='27.75' viewBox='0 0 109 37' fill='none' xmlns='http://www.w3.org/2000/svg'>
+<path d='M6.15234 29H1.94824V7.99414H6.15234V18.4971L13.9746 7.99414H18.75L12.1143 16.8564L18.75 29H13.9746L9.36035 20.5039L6.15234 24.7959V29ZM34.4678 29H33.501L31.9482 26.8467C31.5674 27.1885 31.1621 27.5107 30.7324 27.8135C30.3125 28.1064 29.8682 28.3652 29.3994 28.5898C28.9307 28.8047 28.4473 28.9756 27.9492 29.1025C27.4609 29.2295 26.9629 29.293 26.4551 29.293C25.3516 29.293 24.3115 29.1074 23.335 28.7363C22.3682 28.3652 21.5186 27.8281 20.7861 27.125C20.0635 26.4121 19.4922 25.543 19.0723 24.5176C18.6523 23.4922 18.4424 22.3252 18.4424 21.0166C18.4424 19.7959 18.6523 18.6777 19.0723 17.6621C19.4922 16.6367 20.0635 15.7578 20.7861 15.0254C21.5186 14.293 22.3682 13.7266 23.335 13.3262C24.3115 12.916 25.3516 12.7109 26.4551 12.7109C26.9629 12.7109 27.4658 12.7744 27.9639 12.9014C28.4619 13.0283 28.9453 13.2041 29.4141 13.4287C29.8828 13.6533 30.3271 13.917 30.7471 14.2197C31.1768 14.5225 31.5771 14.8496 31.9482 15.2012L33.501 13.3408H34.4678V29ZM30.4395 21.0166C30.4395 20.4697 30.332 19.9424 30.1172 19.4346C29.9121 18.917 29.6289 18.4629 29.2676 18.0723C28.9062 17.6719 28.4814 17.3545 27.9932 17.1201C27.5146 16.876 27.002 16.7539 26.4551 16.7539C25.9082 16.7539 25.3906 16.8467 24.9023 17.0322C24.4238 17.2178 24.0039 17.4912 23.6426 17.8525C23.291 18.2139 23.0127 18.6631 22.8076 19.2002C22.6025 19.7275 22.5 20.333 22.5 21.0166C22.5 21.7002 22.6025 22.3105 22.8076 22.8477C23.0127 23.375 23.291 23.8193 23.6426 24.1807C24.0039 24.542 24.4238 24.8154 24.9023 25.001C25.3906 25.1865 25.9082 25.2793 26.4551 25.2793C27.002 25.2793 27.5146 25.1621 27.9932 24.9277C28.4814 24.6836 28.9062 24.3662 29.2676 23.9756C29.6289 23.5752 29.9121 23.1211 30.1172 22.6133C30.332 22.0957 30.4395 21.5635 30.4395 21.0166Z' fill='#263B80'/>
+<path d='M42.1582 12.1982V20.6064H46.3623C46.9385 20.6064 47.4805 20.499 47.9883 20.2842C48.4961 20.0596 48.9404 19.7568 49.3213 19.376C49.7021 18.9951 50 18.5508 50.2148 18.043C50.4395 17.5254 50.5518 16.9785 50.5518 16.4023C50.5518 15.8262 50.4395 15.2842 50.2148 14.7764C50 14.2588 49.7021 13.8096 49.3213 13.4287C48.9404 13.0479 48.4961 12.75 47.9883 12.5352C47.4805 12.3105 46.9385 12.1982 46.3623 12.1982H42.1582ZM42.1582 29H37.9541V7.99414H46.3623C47.1338 7.99414 47.876 8.09668 48.5889 8.30176C49.3018 8.49707 49.9658 8.78027 50.5811 9.15137C51.2061 9.5127 51.7725 9.95215 52.2803 10.4697C52.7979 10.9775 53.2373 11.5439 53.5986 12.1689C53.9697 12.7939 54.2529 13.4629 54.4482 14.1758C54.6533 14.8887 54.7559 15.6309 54.7559 16.4023C54.7559 17.125 54.6631 17.8281 54.4775 18.5117C54.3018 19.1953 54.043 19.8447 53.7012 20.46C53.3691 21.0752 52.959 21.6416 52.4707 22.1592C51.9824 22.6768 51.4355 23.126 50.8301 23.5068L53.1592 29H48.6914L46.8604 24.7666L42.1582 24.7959V29ZM63.1641 25.1621C63.3203 25.2109 63.4766 25.2451 63.6328 25.2646C63.7891 25.2744 63.9453 25.2793 64.1016 25.2793C64.4922 25.2793 64.8682 25.2256 65.2295 25.1182C65.5908 25.0107 65.9277 24.8594 66.2402 24.6641C66.5625 24.459 66.8457 24.2148 67.0898 23.9316C67.3438 23.6387 67.5488 23.3164 67.7051 22.9648L70.6348 25.9092C70.2637 26.4365 69.834 26.9102 69.3457 27.3301C68.8672 27.75 68.3447 28.1064 67.7783 28.3994C67.2217 28.6924 66.6309 28.9121 66.0059 29.0586C65.3906 29.2148 64.7559 29.293 64.1016 29.293C62.998 29.293 61.958 29.0879 60.9814 28.6777C60.0146 28.2676 59.165 27.6963 58.4326 26.9639C57.71 26.2314 57.1387 25.3623 56.7188 24.3564C56.2988 23.3408 56.0889 22.2275 56.0889 21.0166C56.0889 19.7764 56.2988 18.6436 56.7188 17.6182C57.1387 16.5928 57.71 15.7188 58.4326 14.9961C59.165 14.2734 60.0146 13.7119 60.9814 13.3115C61.958 12.9111 62.998 12.7109 64.1016 12.7109C64.7559 12.7109 65.3955 12.7891 66.0205 12.9453C66.6455 13.1016 67.2363 13.3262 67.793 13.6191C68.3594 13.9121 68.8867 14.2734 69.375 14.7031C69.8633 15.123 70.293 15.5967 70.6641 16.124L63.1641 25.1621ZM65.2148 16.915C65.0293 16.8467 64.8438 16.8027 64.6582 16.7832C64.4824 16.7637 64.2969 16.7539 64.1016 16.7539C63.5547 16.7539 63.0371 16.8564 62.5488 17.0615C62.0703 17.2568 61.6504 17.54 61.2891 17.9111C60.9375 18.2822 60.6592 18.7314 60.4541 19.2588C60.249 19.7764 60.1465 20.3623 60.1465 21.0166C60.1465 21.1631 60.1514 21.3291 60.1611 21.5146C60.1807 21.7002 60.2051 21.8906 60.2344 22.0859C60.2734 22.2715 60.3174 22.4521 60.3662 22.6279C60.415 22.8037 60.4785 22.96 60.5566 23.0967L65.2148 16.915ZM76.6846 29H72.6855V13.3115H73.6523L74.9707 14.835C75.6152 14.249 76.3428 13.7998 77.1533 13.4873C77.9736 13.165 78.8281 13.0039 79.7168 13.0039C80.6738 13.0039 81.5771 13.1895 82.4268 13.5605C83.2764 13.9219 84.0186 14.4248 84.6533 15.0693C85.2881 15.7041 85.7861 16.4512 86.1475 17.3105C86.5186 18.1602 86.7041 19.0684 86.7041 20.0352V29H82.7051V20.0352C82.7051 19.625 82.627 19.2393 82.4707 18.8779C82.3145 18.5068 82.0996 18.1846 81.8262 17.9111C81.5527 17.6377 81.2354 17.4229 80.874 17.2666C80.5127 17.1104 80.127 17.0322 79.7168 17.0322C79.2969 17.0322 78.9014 17.1104 78.5303 17.2666C78.1592 17.4229 77.8369 17.6377 77.5635 17.9111C77.29 18.1846 77.0752 18.5068 76.9189 18.8779C76.7627 19.2393 76.6846 19.625 76.6846 20.0352V29ZM97.2217 29C96.2549 29 95.3467 28.8193 94.4971 28.458C93.6475 28.0869 92.9004 27.584 92.2559 26.9492C91.6211 26.3047 91.1182 25.5576 90.7471 24.708C90.3857 23.8584 90.2051 22.9502 90.2051 21.9834V17.3252H88.2568V13.3408H90.2051V7.07129H94.1895V13.3408H100.254V17.3252H94.1895V21.9834C94.1895 22.4033 94.2676 22.7988 94.4238 23.1699C94.5801 23.5312 94.7949 23.8486 95.0684 24.1221C95.3418 24.3955 95.6641 24.6152 96.0352 24.7812C96.4062 24.9375 96.8018 25.0156 97.2217 25.0156H100.254V29H97.2217ZM107.432 27.5059C107.432 27.8574 107.368 28.1895 107.241 28.502C107.114 28.8047 106.938 29.0684 106.714 29.293C106.489 29.5176 106.226 29.6934 105.923 29.8203C105.62 29.957 105.293 30.0254 104.941 30.0254C104.6 30.0254 104.272 29.957 103.96 29.8203C103.657 29.6934 103.389 29.5176 103.154 29.293C102.93 29.0684 102.749 28.8047 102.612 28.502C102.485 28.1895 102.422 27.8574 102.422 27.5059C102.422 27.1641 102.485 26.8418 102.612 26.5391C102.749 26.2363 102.93 25.9727 103.154 25.748C103.389 25.5234 103.657 25.3477 103.96 25.2207C104.272 25.084 104.6 25.0156 104.941 25.0156C105.293 25.0156 105.62 25.084 105.923 25.2207C106.226 25.3477 106.489 25.5234 106.714 25.748C106.938 25.9727 107.114 26.2363 107.241 26.5391C107.368 26.8418 107.432 27.1641 107.432 27.5059Z' fill='#4D77FF'/>
+</svg>
+</span>"), root_path) %>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbar-ex-3"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar-ex-3" style="padding-left: 35px">
+        <div class="navbar-nav me-auto">
+          <a class="nav-item nav-link" href="http://localhost:3000">Home</a>
+          <a class="nav-item nav-link" href="http://localhost:3000/catalog">Catalog</a>
+          <a class="nav-item nav-link active" href="http://localhost:3000/about_us">About Us</a>
+        </div>
+
+        <ul class="navbar-nav flex-row align-items-center ms-auto">
+          <!-- Place this tag where you want the button to render. -->
+
+
+          <!-- User -->
+          <li class="nav-item navbar-dropdown dropdown-user dropdown">
+            <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+              <div class="avatar avatar-online">
+                <%= image_tag(current_user.avatar_thumbnail, class:"w-px-40 h-auto rounded-circle") %>
+              </div>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="#">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0 me-3">
+                      <div class="avatar avatar-online">
+                        <%= image_tag(current_user.avatar_thumbnail, class:"w-px-40 h-auto rounded-circle") %>
+                      </div>
+                    </div>
+                    <div class="flex-grow-1">
+                      <span class="fw-semibold d-block"><%= current_user.name.capitalize() %></span>
+                      <small class="text-muted"><%= current_user.role.capitalize() %></small>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <%= link_to(raw("<i class='bx bx-user me-2'></i><span class='align-middle'>My Profile</span>"), edit_user_registration_path, class:"dropdown-item") %>
+              </li>
+              <%= link_to(raw("<i class='bx bx-cog me-2'></i><span class='align-middle'>Admin Panel</span>"), owner_index_path, class:"dropdown-item") %>
+              <!--              <li>-->
+              <!--                <a class="dropdown-item" href="#">-->
+              <!--                  <i class="bx bx-cog me-2"></i>-->
+              <!--                  <span class="align-middle">Settings</span>-->
+              <!--                </a>-->
+              <!--              </li>-->
+              <li>
+                <a class="dropdown-item" href="#">
+                        <span class="d-flex align-items-center align-middle">
+                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
+                          <span class="flex-grow-1 align-middle">Billing</span>
+                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+                        </span>
+                </a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <%= button_to ("<i class='bx bx-power-off me-2'></i><span class='align-middle'>Log Out</span>").html_safe, destroy_user_session_path, method: :delete, class:"dropdown-item"%>
+              </li>
+            </ul>
+          </li>
+          <!--/ User -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+<% else %>
+  <nav class="navbar navbar-expand-lg bg-white" style="padding-top: 1rem;padding-bottom: 1rem;">
+    <div class="container">
+      <%= link_to(raw("<span class='app-brand-logo'>
+  <svg width='81.75' height='27.75' viewBox='0 0 109 37' fill='none' xmlns='http://www.w3.org/2000/svg'>
+<path d='M6.15234 29H1.94824V7.99414H6.15234V18.4971L13.9746 7.99414H18.75L12.1143 16.8564L18.75 29H13.9746L9.36035 20.5039L6.15234 24.7959V29ZM34.4678 29H33.501L31.9482 26.8467C31.5674 27.1885 31.1621 27.5107 30.7324 27.8135C30.3125 28.1064 29.8682 28.3652 29.3994 28.5898C28.9307 28.8047 28.4473 28.9756 27.9492 29.1025C27.4609 29.2295 26.9629 29.293 26.4551 29.293C25.3516 29.293 24.3115 29.1074 23.335 28.7363C22.3682 28.3652 21.5186 27.8281 20.7861 27.125C20.0635 26.4121 19.4922 25.543 19.0723 24.5176C18.6523 23.4922 18.4424 22.3252 18.4424 21.0166C18.4424 19.7959 18.6523 18.6777 19.0723 17.6621C19.4922 16.6367 20.0635 15.7578 20.7861 15.0254C21.5186 14.293 22.3682 13.7266 23.335 13.3262C24.3115 12.916 25.3516 12.7109 26.4551 12.7109C26.9629 12.7109 27.4658 12.7744 27.9639 12.9014C28.4619 13.0283 28.9453 13.2041 29.4141 13.4287C29.8828 13.6533 30.3271 13.917 30.7471 14.2197C31.1768 14.5225 31.5771 14.8496 31.9482 15.2012L33.501 13.3408H34.4678V29ZM30.4395 21.0166C30.4395 20.4697 30.332 19.9424 30.1172 19.4346C29.9121 18.917 29.6289 18.4629 29.2676 18.0723C28.9062 17.6719 28.4814 17.3545 27.9932 17.1201C27.5146 16.876 27.002 16.7539 26.4551 16.7539C25.9082 16.7539 25.3906 16.8467 24.9023 17.0322C24.4238 17.2178 24.0039 17.4912 23.6426 17.8525C23.291 18.2139 23.0127 18.6631 22.8076 19.2002C22.6025 19.7275 22.5 20.333 22.5 21.0166C22.5 21.7002 22.6025 22.3105 22.8076 22.8477C23.0127 23.375 23.291 23.8193 23.6426 24.1807C24.0039 24.542 24.4238 24.8154 24.9023 25.001C25.3906 25.1865 25.9082 25.2793 26.4551 25.2793C27.002 25.2793 27.5146 25.1621 27.9932 24.9277C28.4814 24.6836 28.9062 24.3662 29.2676 23.9756C29.6289 23.5752 29.9121 23.1211 30.1172 22.6133C30.332 22.0957 30.4395 21.5635 30.4395 21.0166Z' fill='#263B80'/>
+<path d='M42.1582 12.1982V20.6064H46.3623C46.9385 20.6064 47.4805 20.499 47.9883 20.2842C48.4961 20.0596 48.9404 19.7568 49.3213 19.376C49.7021 18.9951 50 18.5508 50.2148 18.043C50.4395 17.5254 50.5518 16.9785 50.5518 16.4023C50.5518 15.8262 50.4395 15.2842 50.2148 14.7764C50 14.2588 49.7021 13.8096 49.3213 13.4287C48.9404 13.0479 48.4961 12.75 47.9883 12.5352C47.4805 12.3105 46.9385 12.1982 46.3623 12.1982H42.1582ZM42.1582 29H37.9541V7.99414H46.3623C47.1338 7.99414 47.876 8.09668 48.5889 8.30176C49.3018 8.49707 49.9658 8.78027 50.5811 9.15137C51.2061 9.5127 51.7725 9.95215 52.2803 10.4697C52.7979 10.9775 53.2373 11.5439 53.5986 12.1689C53.9697 12.7939 54.2529 13.4629 54.4482 14.1758C54.6533 14.8887 54.7559 15.6309 54.7559 16.4023C54.7559 17.125 54.6631 17.8281 54.4775 18.5117C54.3018 19.1953 54.043 19.8447 53.7012 20.46C53.3691 21.0752 52.959 21.6416 52.4707 22.1592C51.9824 22.6768 51.4355 23.126 50.8301 23.5068L53.1592 29H48.6914L46.8604 24.7666L42.1582 24.7959V29ZM63.1641 25.1621C63.3203 25.2109 63.4766 25.2451 63.6328 25.2646C63.7891 25.2744 63.9453 25.2793 64.1016 25.2793C64.4922 25.2793 64.8682 25.2256 65.2295 25.1182C65.5908 25.0107 65.9277 24.8594 66.2402 24.6641C66.5625 24.459 66.8457 24.2148 67.0898 23.9316C67.3438 23.6387 67.5488 23.3164 67.7051 22.9648L70.6348 25.9092C70.2637 26.4365 69.834 26.9102 69.3457 27.3301C68.8672 27.75 68.3447 28.1064 67.7783 28.3994C67.2217 28.6924 66.6309 28.9121 66.0059 29.0586C65.3906 29.2148 64.7559 29.293 64.1016 29.293C62.998 29.293 61.958 29.0879 60.9814 28.6777C60.0146 28.2676 59.165 27.6963 58.4326 26.9639C57.71 26.2314 57.1387 25.3623 56.7188 24.3564C56.2988 23.3408 56.0889 22.2275 56.0889 21.0166C56.0889 19.7764 56.2988 18.6436 56.7188 17.6182C57.1387 16.5928 57.71 15.7188 58.4326 14.9961C59.165 14.2734 60.0146 13.7119 60.9814 13.3115C61.958 12.9111 62.998 12.7109 64.1016 12.7109C64.7559 12.7109 65.3955 12.7891 66.0205 12.9453C66.6455 13.1016 67.2363 13.3262 67.793 13.6191C68.3594 13.9121 68.8867 14.2734 69.375 14.7031C69.8633 15.123 70.293 15.5967 70.6641 16.124L63.1641 25.1621ZM65.2148 16.915C65.0293 16.8467 64.8438 16.8027 64.6582 16.7832C64.4824 16.7637 64.2969 16.7539 64.1016 16.7539C63.5547 16.7539 63.0371 16.8564 62.5488 17.0615C62.0703 17.2568 61.6504 17.54 61.2891 17.9111C60.9375 18.2822 60.6592 18.7314 60.4541 19.2588C60.249 19.7764 60.1465 20.3623 60.1465 21.0166C60.1465 21.1631 60.1514 21.3291 60.1611 21.5146C60.1807 21.7002 60.2051 21.8906 60.2344 22.0859C60.2734 22.2715 60.3174 22.4521 60.3662 22.6279C60.415 22.8037 60.4785 22.96 60.5566 23.0967L65.2148 16.915ZM76.6846 29H72.6855V13.3115H73.6523L74.9707 14.835C75.6152 14.249 76.3428 13.7998 77.1533 13.4873C77.9736 13.165 78.8281 13.0039 79.7168 13.0039C80.6738 13.0039 81.5771 13.1895 82.4268 13.5605C83.2764 13.9219 84.0186 14.4248 84.6533 15.0693C85.2881 15.7041 85.7861 16.4512 86.1475 17.3105C86.5186 18.1602 86.7041 19.0684 86.7041 20.0352V29H82.7051V20.0352C82.7051 19.625 82.627 19.2393 82.4707 18.8779C82.3145 18.5068 82.0996 18.1846 81.8262 17.9111C81.5527 17.6377 81.2354 17.4229 80.874 17.2666C80.5127 17.1104 80.127 17.0322 79.7168 17.0322C79.2969 17.0322 78.9014 17.1104 78.5303 17.2666C78.1592 17.4229 77.8369 17.6377 77.5635 17.9111C77.29 18.1846 77.0752 18.5068 76.9189 18.8779C76.7627 19.2393 76.6846 19.625 76.6846 20.0352V29ZM97.2217 29C96.2549 29 95.3467 28.8193 94.4971 28.458C93.6475 28.0869 92.9004 27.584 92.2559 26.9492C91.6211 26.3047 91.1182 25.5576 90.7471 24.708C90.3857 23.8584 90.2051 22.9502 90.2051 21.9834V17.3252H88.2568V13.3408H90.2051V7.07129H94.1895V13.3408H100.254V17.3252H94.1895V21.9834C94.1895 22.4033 94.2676 22.7988 94.4238 23.1699C94.5801 23.5312 94.7949 23.8486 95.0684 24.1221C95.3418 24.3955 95.6641 24.6152 96.0352 24.7812C96.4062 24.9375 96.8018 25.0156 97.2217 25.0156H100.254V29H97.2217ZM107.432 27.5059C107.432 27.8574 107.368 28.1895 107.241 28.502C107.114 28.8047 106.938 29.0684 106.714 29.293C106.489 29.5176 106.226 29.6934 105.923 29.8203C105.62 29.957 105.293 30.0254 104.941 30.0254C104.6 30.0254 104.272 29.957 103.96 29.8203C103.657 29.6934 103.389 29.5176 103.154 29.293C102.93 29.0684 102.749 28.8047 102.612 28.502C102.485 28.1895 102.422 27.8574 102.422 27.5059C102.422 27.1641 102.485 26.8418 102.612 26.5391C102.749 26.2363 102.93 25.9727 103.154 25.748C103.389 25.5234 103.657 25.3477 103.96 25.2207C104.272 25.084 104.6 25.0156 104.941 25.0156C105.293 25.0156 105.62 25.084 105.923 25.2207C106.226 25.3477 106.489 25.5234 106.714 25.748C106.938 25.9727 107.114 26.2363 107.241 26.5391C107.368 26.8418 107.432 27.1641 107.432 27.5059Z' fill='#4D77FF'/>
+</svg>
+</span>"), root_path) %>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbar-ex-3"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar-ex-3" style="padding-left: 35px">
+        <div class="navbar-nav me-auto">
+          <a class="nav-item nav-link" href="http://localhost:3000">Home</a>
+          <a class="nav-item nav-link active" href="http://localhost:3000/catalog">Catalog</a>
+          <a class="nav-item nav-link" href="http://localhost:3000/about_us">About Us</a>
+        </div>
+
+        <%= link_to "Sign in", new_user_session_path, class:"btn btn-primary mr-2"  %>
+        <%= link_to "Sign up", new_user_registration_path	, class:"btn btn-outline-primary"  %>
+      </div>
+    </div>
+  </nav>
+<%end%>
+<style>
+    /* Font Family */
+    @import url("http://fonts.cdnfonts.com/css/tt-commons");
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-padding-top: 2rem;
+        scroll-behavior: smooth;
+        list-style: none;
+        text-decoration: none;
+        font-family: "TT Commons", sans-serif;
+    }
+    :root {
+        --main-color: #4d77ff;
+        --surface-color: #dbe4ff;
+        --border-color: #c4d2ff;
+        --hover-color: #4063d4;
+        --pressed-color: #263b80;
+        --focus-color: #4d77ff 20%;
+        --text-color: black;
+        --gradient: linear-gradient(#4d77ff, #dbe4ff);
+    }
+    h1 {
+        font-size: 32px;
+        font-weight: bold;
+        line-height: auto;
+        letter-spacing: 1.6%;
+    }
+    h2 {
+        font-size: 28px;
+        font-weight: bold;
+        line-height: auto;
+        letter-spacing: 0%;
+    }
+    h3 {
+        font-size: 20px;
+        font-weight: normal;
+        line-height: auto;
+        letter-spacing: 0%;
+    }
+    h4 {
+        font-size: 18px;
+        font-weight: normal;
+        line-height: auto;
+        letter-spacing: 0;
+    }
+    html::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+    html::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    html::-webkit-scrollbar-thumb {
+        background: var(--main-color);
+        border-radius: 5rem;
+    }
+    section {
+        margin-top: -76px;
+        padding: 50px 100px;
+    }
+    .logo img {
+        position: static;
+        width: 109px;
+        height: 37px;
+        left: 0px;
+        top: 0px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 68px;
+    }
+    #menu-icon {
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 10001;
+        display: none;
+    }
+    .catalog {
+        margin-top: 50px;
+    }
+    .detail-image img {
+        width: 380px;
+        height: 380px;
+        border: 1px solid rgba(21, 29, 59, 0.12);
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+        border-radius: 10px;
+    }
+    .small-image img {
+        margin-top: 12px;
+        width: 74px;
+        height: 74px;
+        border: 1px solid rgba(21, 29, 59, 0.12);
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+        border-radius: 10px;
+    }
+    .h-feedback {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        width: 380px;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #c4d2ff;
+        border-radius: 10px;
+        margin-top: 12px;
+        margin-left: 1px;
+    }
+    .h-feedback img {
+        width: 20px;
+        height: 20px;
+    }
+    .h-feedback span {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0px 8px;
+        color: #151d3b;
+        opacity: 75%;
+    }
+    .h-feedback .header {
+        border-bottom: 1px solid #c4d2ff;
+        justify-content: flex-start;
+    }
+    .h-feedback .body {
+        margin-top: 12px;
+    }
+    .h-feedback .body p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: #151d3b;
+        opacity: 75%;
+    }
+    .h-feedback .body span {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: var(--text-color);
+    }
+    .h-feedback .body .profile img {
+        width: 42px;
+        height: 42px;
+    }
+    .h-feedback .body .profile .star {
+        margin-left: -12px;
+        margin-top: -6px;
+    }
+    .h-feedback .body .profile .star a {
+        text-decoration: none;
+        font-family: "TT Commons";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        margin-bottom: 4px;
+    }
+    .h-feedback .body .profile .star img {
+        width: 18px;
+        height: 18px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        margin-right: 4px;
+        margin-top: -14px;
+    }
+    .deskripsi {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        width: 519px;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #c4d2ff;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+    .car-name {
+        padding-bottom: 12px;
+        border-bottom: 1px solid #c4d2ff;
+    }
+    .car-name h2 {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 33px;
+    }
+    .car-name h1 {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 38px;
+        letter-spacing: 0.016em;
+    }
+    .car-name h3 {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .owner {
+        margin-top: 24px;
+        width: 471px;
+        height: auto;
+    }
+    .owner-detail {
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .owner-name h3 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        margin: 2px 0px;
+    }
+    .owner-name h4 {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        margin: 2px 0px;
+    }
+    .owner-name .status {
+        color: #43936c;
+    }
+    .img-profile img {
+        width: 64px;
+        height: 64px;
+    }
+    .owner-detail button {
+        border-radius: 8px;
+        justify-content: center;
+        display: flex;
+        width: 102px;
+        height: 42px;
+    }
+    .owner-detail .follow-btn {
+        display: flex;
+        justify-content: flex-end;
+        align-content: flex-end;
+    }
+    .owner-name {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+    }
+    button .msg-follow,
+    button .msg-following,
+    button .msg-unfollow {
+        display: none;
+    }
+
+    button .msg-follow {
+        display: inline;
+    }
+
+    button.following .msg-follow {
+        display: none;
+    }
+
+    button.following .msg-following {
+        display: inline;
+    }
+
+    button.following:not(.wait):hover .msg-following {
+        display: none;
+    }
+
+    button.following:not(.wait):hover .msg-unfollow {
+        display: inline;
+    }
+    .detail-car {
+        margin-top: 24px;
+        margin-bottom: 12px;
+    }
+    .detail-car img {
+        width: 20px;
+        height: 20px;
+    }
+    .detail-car span {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0px 12px;
+        color: #151d3b;
+        opacity: 75%;
+    }
+    .block1 {
+        margin-right: 60px;
+    }
+    .desc-car p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: #151d3b;
+        opacity: 75%;
+    }
+    .info-rental {
+        margin-top: 12px;
+    }
+    .info-rental img {
+        width: 20px;
+        height: 20px;
+    }
+    .info-rental span {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0px 12px;
+        color: #151d3b;
+        opacity: 75%;
+    }
+    .cancel {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 24px;
+        width: 519px;
+        height: auto;
+        border: 1px solid #c4d2ff;
+        box-sizing: border-box;
+        border-radius: 10px;
+        margin-top: 12px;
+    }
+    .cancel img {
+        width: 68px;
+        height: 68px;
+    }
+    .cancel p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: rgba(21, 29, 59, 0.75);
+    }
+    .additional {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 114px 24px 24px;
+        width: 360px;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #c4d2ff;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+    .additional h3 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .additional label {
+        font-family: "TT Commons";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: rgba(21, 29, 59, 0.75);
+        opacity: 75%;
+    }
+    .payment {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 114px 24px 24px;
+        width: 360px;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #c4d2ff;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+    .payment h3 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .payment label {
+        font-family: "TT Commons";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: rgba(21, 29, 59, 0.75);
+        opacity: 75%;
+    }
+    .price {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 114px 24px 24px;
+        width: 360px;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #c4d2ff;
+        box-sizing: border-box;
+        border-radius: 10px;
+        margin-top: 12px;
+        margin-left: 1px;
+    }
+    .price h3 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 16px;
+    }
+    .price p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 12px;
+        color: rgba(21, 29, 59, 0.75);
+        opacity: 75%;
+    }
+    .price .header {
+        width: 320px;
+    }
+    .price .row-price {
+        border-bottom: 1px solid #c4d2ff;
+        width: 320px;
+    }
+    .price .total {
+        width: 320px;
+        margin-top: 12px;
+    }
+    .price .reserve {
+        width: 330px;
+        justify-content: center;
+    }
+    .price .total p {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 19px;
+        color: var(--main-color);
+    }
+    .payment .payment-method-btn {
+        display: flex;
+        justify-content: flex-start;
+        align-content: flex-start;
+    }
+    .payment .payment-method {
+        width: 300px;
+        background-color: #efeff1;
+        color: black;
+    }
+    /* .payment .payment-method span img {
+      margin-left: -150px;
+    } */
+    .ctn {
+        margin-left: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 24px;
+        width: 920px;
+        height: auto;
+        border: 1px solid #c4d2ff;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+    .ctn h3 {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 16px;
+    }
+    .ctn .profile img {
+        width: 42px;
+        height: 42px;
+    }
+    .ctn .date {
+        margin-left: -12px;
+        margin-top: -6px;
+    }
+    .ctn .date a {
+        text-decoration: none;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+    }
+    .ctn .date p {
+        margin-top: -12px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: rgba(21, 29, 59, 0.75);
+    }
+    .review {
+        margin-left: 24px;
+        margin-top: -6px;
+    }
+    .review p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: rgba(21, 29, 59, 0.75);
+    }
+    .review img {
+        width: 18px;
+        height: 18px;
+        order: 1;
+    }
+    .reply {
+        margin-left: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 54px 18px 18px;
+        position: static;
+        width: 704px;
+        height: auto;
+        background: rgba(21, 29, 59, 0.07);
+        border-radius: 10px;
+    }
+    .reply .date p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .ctn .seperator {
+        border-bottom: 1px solid #c4d2ff;
+        padding-bottom: 24px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+</style>
+<section class="catalog" id="catalog">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="detail-image">
+          <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/8/84/2018_Honda_Civic_1.5_E_hatchback_%28FK4%3B_01-23-2019%29%2C_South_Tangerang.jpg", alt:"Car") %>
+          <img
+            src="assets/img/Icon/Badge.png?h=ca597b20a5cb148e7fb25a134050be19"
+            />
+        </div>
+        <div class="row">
+          <div class="small-image">
+            <img src="assets/img/login_car.png" alt="">
+            <img src="assets/img/login_car.png" alt="">
+            <img src="assets/img/login_car.png" alt="">
+            <img src="assets/img/login_car.png" alt="">
+          </div>
+        </div>
+        <div class="row h-feedback">
+          <div class="row header">
+            <h3 style="font-weight: bold;">Helpful feedback</h3>
+            <h3>Honda Civic 1.5A</h3>
+            <p><img src="assets/img/detail_car/icon/Variants=star_purple500.png" alt=""><span>4.8/5</span></p>
+          </div>
+          <div class="row body">
+            <p><img src="assets/img/detail_car/icon/Variants=push_pin.png" alt=""><span>Pinned by Haryanto Abadi</span></p>
+            <div class="row profile">
+              <div class="col-md-auto">
+                <img src="assets/img/detail_car/Profile.png" alt="">
+              </div>
+              <div class="col star">
+                <h3><a href="">Budi Zone</a></h3>
+                <img src="assets/img/detail_car/icon/Variants=star_purple500.png" alt="">
+                <img src="assets/img/detail_car/icon/Variants=star_purple500.png" alt="">
+                <img src="assets/img/detail_car/icon/Variants=star_purple500.png" alt="">
+                <img src="assets/img/detail_car/icon/Variants=star_purple500.png" alt="">
+                <img src="assets/img/detail_car/icon/Variants=star_purple500.png" alt="">
+              </div>
+            </div>
+            <p>Rental mobil Haryanto abadi sangat bagus ownernya sangat ramah kepada
+              customer mobil yang saya gunakan dari haryanto abadi sangat nyaman saat digunakan
+              di perjalan jauh, saya kasih bintang 5 gan. nanti aku bakal sewa disini lagi</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row deskripsi">
+          <div class="row car-name">
+            <h2>Honda Civic 1.5A</h2>
+            <h1>Rp600.000/day</h1>
+          </div>
+          <div class="row owner">
+            <h3 style="font-weight: bold;">Owner</h3>
+            <div class="row owner-detail">
+              <div class="col-md-auto">
+                <div class="img-profile""><img src="assets/img/detail_car/Profile.png" alt=""></div>
+            </div>
+            <div class="col owner-name">
+              <h3>Haryanto Abadi</h3>
+              <h4 class="status">Online</h4>
+              <h4>Jakarta Barat, Indonesia</h4>
+            </div>
+            <div class="col follow-btn">
+              <button class="btn btn-secondary follow" id="follow">
+                <span class="msg-follow">Follow</span>
+                <span class="msg-following">Following</span>
+                <span class="msg-unfollow">Unfollow</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row detail-car">
+          <h3 style="font-weight: bold;">Detail Car</h3>
+          <div class="col-md-auto block1">
+            <p><img src="assets/img/detail_car/icon/Variants=people.png" alt=""><span>5 Passanger</span></p>
+            <p><img src="assets/img/detail_car/icon/Variants=time_to_leave.png" alt=""><span>4 Doors</span></p>
+            <p><img src="assets/img/detail_car/icon/Variants=ac_unit.png" alt=""><span>Air Conditioning</span></p>
+            <p><img src="assets/img/detail_car/icon/Variants=fuel.png" alt=""><span>Pertamax</span></p>
+          </div>
+          <div class="col">
+            <p><img src="assets/img/detail_car/icon/Variants=calendar_today.png" alt=""><span>Registered 2020</span></p>
+            <p><img src="assets/img/detail_car/icon/Variants=miscellaneous_services.png" alt=""><span>Automatic</span></p>
+            <p><img src="assets/img/detail_car/icon/Variants=home_repair_service.png" alt=""><span>january 18, 2021</span></p>
+          </div>
+        </div>
+        <div class="row desc-car">
+          <h3 style="font-weight: bold;">Description</h3>
+          <p>Mobil yang kami sewakan kepada customer telah mengalami perawatan terlebih dahulu sebelum disewa customer. kami rutin melakukan service setiap 6 bulan sekali, termasuk penggantian oli, air radiator, aki dan komponen lainnya.</p>
+        </div>
+        <div class="info-rental">
+          <h3 style="font-weight: bold;">Info Rental</h3>
+          <div class="col-md-auto">
+            <p><img src="assets/img/detail_car/icon/Variants=location_on.png" alt=""><span>Jl. Ahmad Sutisna No.60, RT 07 RW 10 Kel, Cabak, Kec Gebong, Jakarta Barat, Indonesia, 60076</span></p>
+            <p><img src="assets/img/detail_car/icon/Variants=access_time_filled.png" alt=""><span>08:00 - 21:00 WIB </span></p>
+          </div>
+        </div>
+      </div>
+      <div class="row cancel">
+        <div class="col-md-auto">
+          <img src="assets/img/detail_car/Emoji/date.png" alt="">
+        </div>
+        <div class="col">
+          <h3 style="font-weight: bold;">Free Cancellation</h3>
+          <p>Cancel free of charge anytime. And reserve now</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row-md-auto additional">
+        <h3>Additionals (Optional)</h3>
+        <form action="">
+          <div class="form-check">
+            <input class="form-check-input" disabled type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              With Driver (Coming Soon)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Without Driver
+            </label>
+          </div>
+        </form>
+      </div>
+      <div class="row-md-auto price">
+        <div class="row header">
+          <h3>Price Details</h3>
+        </div>
+        <div class="row row-price" style="justify-content: space-between; ">
+          <div class="col-md-auto">
+            <p class="price-detail">
+              Rental fee x2 Day
+            </p>
+            <p class="price-detail">
+              Taxes and Fees (5%)
+            </p>
+          </div>
+          <div class="col-md-auto">
+            <p class="price-detail">
+              Rp.1.200.000
+            </p>
+            <p class="price-detail">
+              Rp.60.000
+            </p>
+          </div>
+        </div>
+        <div class="row total" style="justify-content: space-between;">
+          <div class="col-md-auto">
+            <p class="price-detail">
+              Total
+            </p>
+          </div>
+          <div class="col-md-auto">
+            <p class="price-detail">
+              Rp.1.260.000
+            </p>
+          </div>
+        </div>
+        <div class="row reserve">
+          <form action="">
+            <input type="submit" class="btn btn-primary w-100" value="Reserve"></input>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
