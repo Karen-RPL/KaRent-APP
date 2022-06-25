@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   attr_writer :login
   has_one :company
-
+  has_one :order
 
 
   enum role: {customer: 0, owner: 10, admin: 99}, _default: 0

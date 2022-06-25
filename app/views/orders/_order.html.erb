@@ -1,12 +1,21 @@
-<div id="<%= dom_id order %>">
-  <p>
-    <strong>User:</strong>
-    <%= order.user_id %>
-  </p>
+<tr id=<%= dom_id order %>>
+  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%= order.car.name.titleize %></strong></td>
+  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%= order.car.description[0..20] %></strong></td>
+  <td><span class="badge bg-label-primary me-1"><%= order.car.price %> IDR</span></td>
+  <td><span class="badge bg-label-primary me-1"><%= order.car.year %></span></td>
+  <td><span class="badge bg-label-primary me-1"><%= order.user.email %> IDR</span></td>
 
-  <p>
-    <strong>Car:</strong>
-    <%= order.car_id %>
-  </p>
 
-</div>
+
+  <td>
+    <div class="dropdown">
+      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+        <i class="bx bx-dots-vertical-rounded"></i>
+      </button>
+      <div class="dropdown-menu">
+        <%#= link_to "Edit this car", edit_car_path(car), :class=>"dropdown-item" %>
+        <%= button_to "Destroy this order", order, method: :delete, :class=>"dropdown-item" %>
+      </div>
+    </div>
+  </td>
+</tr>

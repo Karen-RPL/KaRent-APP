@@ -7,6 +7,7 @@ class OwnerController < ApplicationController
     unless current_user.role == "owner"
       redirect_to root_path
     end
+    @orders = Order.all
   end
 
   #Controller untuk menampilkan profile perusahaan
@@ -18,6 +19,7 @@ class OwnerController < ApplicationController
   #Controller untuk membuat perusahaan
   def new_company
     @company = Company.new
+    render :create_company
   end
 
   def create_company
